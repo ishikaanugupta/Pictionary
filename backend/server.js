@@ -9,12 +9,18 @@ const port = process.env.PORT || 5000;
 
 const url = 'mongodb://127.0.0.1:27017/Doodles'
 mongoose.connect(url, { useNewUrlParser: true })
-const db = mongoose.connection
-db.once('open', _ => {
+mongoose.connection.once('open', _ => {
     console.log('Database connected: ', url)
+    //mongoose.connection.db.listCollections().toArray(function (err, names) {
+    //    names.forEach(element => {
+    //        doodleCategories.push(element.name)
+    //    });
+    //    console.log(doodleCategories);
+    //    exports.doodleCategories = doodleCategories; 
+    //});
 })
 
-db.on('error', err => {
+mongoose.connection.on('error', err => {
     console.error('connection error: ', err)
 })
 
