@@ -1,8 +1,8 @@
-const router = require('express').Router();
+const router = require('express').Router({ mergeParams: true });
 let Sketches = require('../models/sketches.model');
 
-var choices = []
-var answer = ""
+let choices = []
+let answer = ""
 
 function getChoices(categories) {
     choices = []
@@ -16,29 +16,26 @@ function getChoices(categories) {
     return [choices, answer]
 } 
 
-function getCategories(fromDb) {
-    const categories = fromDb
-    return categories
-}
 
 router.route('/').get((req, res) => {
     res.send("GUESS PAGE!");
 });
 
 router.route('/fetchOptions').get((req, res) => {
-    Sketches.aggregate([
-        {
-            $group: { _id: null, uniqueValues: {$addToSet: "$word"}}
-        }
-    ])
-        //.then(sketches => res.json(sketches))
-        .then(sketches =>
-            res.json(getChoices(getCategories(sketches[0]['uniqueValues'])))
-        )
+    //const categories = Sketches.distinct('word')
+    Sketches.distinct('word', (err, results) => {
+        res.json(getChoices(results))  
+    })
 });
 
-router.route('/fetchDrawing').get((req, res) => {
-    res.send("Get the Drawing!")
+router.route('/fetch/:answer').get((req, res) => {
+    console.log(req.params.answer) 
+    Sketches.find({ word: req.params.answer })
+        .then(results => {
+            let rand = Math.floor(Math.random() * 25)
+            console.log(rand, results[rand]['word'])
+            res.json(results[rand]['drawing'])
+        })
 });
 
 
