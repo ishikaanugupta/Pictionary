@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap");
+
+body {
+    font-family: 'Gaegu', cursive;
+  }
+.myCanvas {
+    width: 700px;
+    height: 500px;
+    margin: auto;
+}
+
+.fullScreen {
+    width: 100vw;
+    height: 100vh;
+}
+
+.fixAtBottom {
+    position: fixed;
+    width: 100%;
+    top: 90%;
+    font-size: 30px;
+}
+
+.controller {
+    margin: 0px 10px;
+}
+
+.gameData {
+    background-color: #fcfce9;
+    height: 96vh;
+}
+
+.option {
+    width: 50%;
+    float: left;
+}
+
+.blue {
+    background-color: #0275d8;
+}
+
+.popupSize {
+    width: 350px;
+    border-color: aliceblue;
+    border-style: outset;
+    margin: auto;
+}
+
+.gif {
+    border-color: aliceblue;
+    border-style: inset;
+    margin: 10px;
+}
+
+.board {
+    color: #0275d8;
+    border-color: aliceblue;
+    border-radius: 10px;
+    border-width: 1px;
+    position: fixed;
+    top: 30%;
+    right: 5%;
+    font-size: 30px;
+    border-style: inset;
+}
+
+.timer {
+    color: #0275d8;
+    border-color: aliceblue;
+    border-radius: 10px;
+    border-width: 1px;
+    position: fixed;
+    top: 21.5%;
+    right: 5%;
+    font-size: 30px;
+    border-style: inset;
+}
+
+.eraser {
+    border-color: aliceblue;
+    border-style: outset;
+    position: fixed;
+    top: 12%;
+    right: 5%;
+}
