@@ -39,7 +39,7 @@ export default class CanvasDisplay extends Component {
                         clearInterval(ticktock);
                     }
                 }
-            }, 35)
+            }, 30)
         }
     }
 
