@@ -58,7 +58,7 @@ export default class GameOption extends Component {
                             </span> 
                         </p>
                 </footer>
-    Name         </div>
+            </div>
         );
     }
 }
